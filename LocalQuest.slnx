@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/LocalQuest.ConsoleApp/LocalQuest.ConsoleApp.csproj" />
+    <Project Path="src/LocalQuest.Core/LocalQuest.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/LocalQuest.Core.Tests/LocalQuest.Core.Tests.csproj" />
+  </Folder>
+</Solution>
