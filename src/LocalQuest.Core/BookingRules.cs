@@ -2,23 +2,15 @@ namespace LocalQuest.Core;
 
 public static class BookingRules
 {
-    public static bool IsValidPartySize(int n)
+    public static bool IsValidPartySize(int people)
     {
-        if (n < 1)
+        if (people >= 1 && people <= 8)
         {
-
-            return false;
-
-        }
-        else if (n > 8)
-        {
-
-            return false;
+            return true;
         }
         else
         {
-
-            return true;
+            return false;
         }
 
     }
