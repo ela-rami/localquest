@@ -1,1 +1,5 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using LocalQuest.Core;
+
+var valid = BookingRules.IsValidPartySize(3);
+
+Console.WriteLine(valid);
