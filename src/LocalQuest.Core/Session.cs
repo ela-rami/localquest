@@ -34,4 +34,33 @@ public class Session
         Price = price;
         SeatsLeft = capacity;
     }
+
+    public BookingResult Book(string customerName, int people, DateTimeOffset now)
+    {
+        if (string.IsNullOrWhiteSpace(customerName))
+        {
+            return BookingResult.Failure(BookingError.NoCustomerName);
+        }
+
+        if (!BookingRules.IsValidPartySize(people))
+        {
+            return BookingResult.Failure(BookingError.InvalidPartySize);
+        }
+
+        if (now >= this.StartsAt)
+        {
+            return BookingResult.Failure(BookingError.SessionStarted);
+        }
+
+        if (people > this.SeatsLeft)
+        {
+            return BookingResult.Failure(BookingError.NotEnoughSeats);
+        }
+
+        var booking = new Booking(this, customerName, people);
+
+        SeatsLeft = SeatsLeft - people;
+
+        return BookingResult.Success(booking);
+    }
 }
